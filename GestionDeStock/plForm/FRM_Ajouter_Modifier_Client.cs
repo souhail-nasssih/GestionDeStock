@@ -301,5 +301,10 @@ namespace GestionDeStock.plForm
             txtpc.Text = "Pays de Client";
             txtpc.ForeColor = Color.Silver;
         }
+
+        private void txtnp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

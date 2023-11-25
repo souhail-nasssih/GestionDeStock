@@ -35,7 +35,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtrecherche = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comborecherche = new System.Windows.Forms.ComboBox();
             this.dvgclient = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,23 +110,24 @@
             this.panel4.Size = new System.Drawing.Size(395, 3);
             this.panel4.TabIndex = 7;
             // 
-            // comboBox1
+            // comborecherche
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comborecherche.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comborecherche.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comborecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comborecherche.FormattingEnabled = true;
+            this.comborecherche.Items.AddRange(new object[] {
             "Nom",
             "Prenom",
             "Telephone",
             "Email",
             "Ville",
             "Pays"});
-            this.comboBox1.Location = new System.Drawing.Point(255, 194);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(341, 37);
-            this.comboBox1.TabIndex = 8;
+            this.comborecherche.Location = new System.Drawing.Point(255, 194);
+            this.comborecherche.Name = "comborecherche";
+            this.comborecherche.Size = new System.Drawing.Size(341, 37);
+            this.comborecherche.TabIndex = 8;
+            this.comborecherche.SelectedIndexChanged += new System.EventHandler(this.comborecherche_SelectedIndexChanged);
             // 
             // dvgclient
             // 
@@ -289,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dvgclient);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comborecherche);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.txtrecherche);
             this.Controls.Add(this.panel3);
@@ -317,7 +318,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtrecherche;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comborecherche;
         private System.Windows.Forms.DataGridView dvgclient;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;

@@ -177,6 +177,7 @@
             this.txtnp.Size = new System.Drawing.Size(328, 47);
             this.txtnp.TabIndex = 6;
             this.txtnp.Text = "Prenom de Client";
+            this.txtnp.TextChanged += new System.EventHandler(this.txtnp_TextChanged);
             this.txtnp.Enter += new System.EventHandler(this.txtnp_Enter);
             this.txtnp.Leave += new System.EventHandler(this.txtnp_Leave);
             // 

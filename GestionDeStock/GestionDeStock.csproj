@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="blCLasses\CLS_Client.cs" />
     <Compile Include="blCLasses\CLS_Connexion.cs" />
+    <Compile Include="blCLasses\CLS_Produit.cs" />
     <Compile Include="Categorie.cs">
       <DependentUpon>GESTION_Stock.tt</DependentUpon>
     </Compile>
@@ -96,6 +97,12 @@
     <Compile Include="plForm\FRM_Ajouter_Modifier_Client.Designer.cs">
       <DependentUpon>FRM_Ajouter_Modifier_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="plForm\FRM_A_M_Produit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="plForm\FRM_A_M_Produit.Designer.cs">
+      <DependentUpon>FRM_A_M_Produit.cs</DependentUpon>
+    </Compile>
     <Compile Include="plForm\FRM_Connexion1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,12 @@
     <Compile Include="plForm\USER_Liste_Client.Designer.cs">
       <DependentUpon>USER_Liste_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="plForm\USER_Liste_Produit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="plForm\USER_Liste_Produit.Designer.cs">
+      <DependentUpon>USER_Liste_Produit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Produit.cs">
       <DependentUpon>GESTION_Stock.tt</DependentUpon>
     </Compile>
@@ -125,6 +138,9 @@
     <EmbeddedResource Include="plForm\FRM_Ajouter_Modifier_Client.resx">
       <DependentUpon>FRM_Ajouter_Modifier_Client.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="plForm\FRM_A_M_Produit.resx">
+      <DependentUpon>FRM_A_M_Produit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="plForm\FRM_Connexion1.resx">
       <DependentUpon>FRM_Connexion1.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="plForm\USER_Liste_Client.resx">
       <DependentUpon>USER_Liste_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="plForm\USER_Liste_Produit.resx">
+      <DependentUpon>USER_Liste_Produit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +195,13 @@
       <DependentUpon>GESTION_Stock.edmx</DependentUpon>
       <LastGenOutput>GESTION_Stock.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\prix_321.png" />
+    <None Include="Resources\Quantie_321.png" />
+    <None Include="Resources\product_321.png" />
+    <None Include="Resources\Excel-icon1.png" />
+    <None Include="Resources\Imprimer2.png" />
+    <None Include="Resources\Imprimer1.png" />
+    <None Include="Resources\Pictures-icon1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Actions-list-add-icon.png" />
