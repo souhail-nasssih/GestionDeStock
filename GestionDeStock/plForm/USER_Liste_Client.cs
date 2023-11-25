@@ -35,6 +35,8 @@ namespace GestionDeStock.plForm
         {
             InitializeComponent();
             db = new GESTION_DE_STOCKEntities();
+            // desactive texbox de recherche 
+            txtrecherche.Enabled = false;
         }
         //ajouter datagridview
         public void Actualiserdatagrid()
@@ -79,6 +81,52 @@ namespace GestionDeStock.plForm
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            db = new GESTION_DE_STOCKEntities();
+            var listerecherche = db.Clients.ToList();//listerechcher = liste des clients
+            if (txtrecherche.Text!="")// pas vide 
+            {
+                switch (comborecherche.Text)
+                {
+                    case "Nom":
+                        listerecherche=listerecherche.Where(s=>s.Nom_client.IndexOf(txtrecherche.Text,StringComparison.CurrentCultureIgnoreCase)!=-1).ToList();
+                        //stringComparaison.CurrentCultureIgnoreCase == sois j'ai ecrit la premiere lettre en majuscule ou bien minusculle  
+                        // !=-1 existe dans la database 
+                        break;
+                    case "Prenom":
+                        listerecherche = listerecherche.Where(s => s.Prenom_client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
+                        break;
+                    case "Telephone":
+                        listerecherche = listerecherche.Where(s => s.TEl_client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
+                        break;
+                    case "Adresse":
+                    listerecherche = listerecherche.Where(s => s.Adress_client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
+                    break;
+                    case "Email":
+                        listerecherche = listerecherche.Where(s => s.Email_Client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
+                        break;
+                    case "Ville":
+                        listerecherche = listerecherche.Where(s => s.Ville_client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+                     
+                        break;
+                    case "Pays":
+                        listerecherche = listerecherche.Where(s => s.Pays_client.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+                      
+                        break;
+                 
+
+                }
+            }
+            // vider la grid
+            dvgclient.Rows.Clear();
+            //ajouter listerecherche dans la datagrid clients 
+            foreach (var l in listerecherche)
+            {
+                dvgclient.Rows.Add(false, l.id_client, l.Nom_client, l.Prenom_client, l.Adress_client,l.TEl_client,l.Email_Client,l.Ville_client,l.Pays_client) ;                
+            }
 
         }
 
@@ -180,6 +228,13 @@ namespace GestionDeStock.plForm
                 }
 
             }
-        }   
+        }
+
+        private void comborecherche_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //activer le textbox recherche si j ai choisie un champ
+            txtrecherche.Enabled = true;
+            txtrecherche.Text = "";//pour vider le textbox de recherch 
+        }
     }
 }

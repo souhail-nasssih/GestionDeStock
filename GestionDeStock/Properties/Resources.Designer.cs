@@ -263,6 +263,16 @@ namespace GestionDeStock.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Excel_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Excel-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gmail_32 {
             get {
                 object obj = ResourceManager.GetObject("Gmail_32", resourceCulture);
@@ -286,6 +296,26 @@ namespace GestionDeStock.Properties {
         internal static System.Drawing.Bitmap Imprimer {
             get {
                 object obj = ResourceManager.GetObject("Imprimer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imprimer1 {
+            get {
+                object obj = ResourceManager.GetObject("Imprimer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imprimer2 {
+            get {
+                object obj = ResourceManager.GetObject("Imprimer2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,6 +553,16 @@ namespace GestionDeStock.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pictures_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Pictures-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap print_icon {
             get {
                 object obj = ResourceManager.GetObject("print-icon", resourceCulture);
@@ -543,6 +583,16 @@ namespace GestionDeStock.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap prix_321 {
+            get {
+                object obj = ResourceManager.GetObject("prix_321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap product_32 {
             get {
                 object obj = ResourceManager.GetObject("product_32", resourceCulture);
@@ -553,9 +603,29 @@ namespace GestionDeStock.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap product_321 {
+            get {
+                object obj = ResourceManager.GetObject("product_321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Quantie_32 {
             get {
                 object obj = ResourceManager.GetObject("Quantie_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Quantie_321 {
+            get {
+                object obj = ResourceManager.GetObject("Quantie_321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

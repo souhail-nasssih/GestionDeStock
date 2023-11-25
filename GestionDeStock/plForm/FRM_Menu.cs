@@ -99,6 +99,16 @@ namespace GestionDeStock.plForm
         private void btnproduits_Click(object sender, EventArgs e)
         {
             panelm.Top=btnproduits.Top;
+            if (!pnlaficher.Controls.Contains(USER_Liste_Produit.Instance))
+            {
+                pnlaficher.Controls.Add(USER_Liste_Produit.Instance);
+                USER_Liste_Produit.Instance.Dock = DockStyle.Fill;
+                USER_Liste_Produit.Instance.BringToFront();
+            }
+            else
+            {
+                USER_Liste_Produit.Instance.BringToFront();
+            }
         }
 
         private void btnClient_Click(object sender, EventArgs e)
