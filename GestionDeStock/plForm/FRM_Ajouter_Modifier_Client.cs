@@ -273,7 +273,8 @@ namespace GestionDeStock.plForm
                 //pour actualiser la database
                 (usclient as USER_Liste_Client).Actualiserdatagrid();
                     MessageBox.Show("Client Modifier avec succes","modifcation",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
+                    Close();// pour quitter le formulaire si la modification terminer 
+ 
                 }
                 else
                 {

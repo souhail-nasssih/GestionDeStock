@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GestionDeStock.plForm
 {
@@ -46,6 +48,27 @@ namespace GestionDeStock.plForm
             }
         }
 
+        //verifier combien de ligne est selectionner 
+        public string selecVerif()
+        {
+            int nombreligneselect = 0;
+            for (int i = 0; i < dvgProduit.Rows.Count; i++)
+            {
+                if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)//si ligne est selectionner 
+                {
+                    nombreligneselect++;//nombre de liogne +1
+                }
+            }
+            if (nombreligneselect == 0)
+            {
+                return "Selectionner Produit ";
+            }
+            if (nombreligneselect > 1)
+            {
+                return "Selectionner un seule Produit ";
+            }
+            return null;
+        }
 
         public USER_Liste_Produit()
         {
@@ -75,15 +98,112 @@ namespace GestionDeStock.plForm
 
         private void bntmodifierp_Click(object sender, EventArgs e)
         {
+            Produit PR = new Produit();
+            if (selecVerif()!=null)
+            {
+                MessageBox.Show(selecVerif(), "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
             plForm.FRM_A_M_Produit frmproduit = new FRM_A_M_Produit(this);
             frmproduit.lbltitre.Text = "Modifier Produit";
             frmproduit.btnactualiser.Visible = false;
+                for (int i = 0; i < dvgProduit.Rows.Count; i++)//verifier la ligne selectionner 
+                {
+
+                    if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)// si ligne selectionner 
+                    {
+                        int MYIDSELECT = (int)dvgProduit.Rows[i].Cells[1].Value;// le id la ligne selectionner 
+                        PR = db.Produits.SingleOrDefault(s => s.id_produit == MYIDSELECT); // verifier si id de produit = id selectionner dans le table 
+                        if (PR != null)
+                        {
+                        frmproduit.combocategorie.Text = dvgProduit.Rows[i].Cells[5].Value.ToString();
+                        frmproduit.txtnprduit.Text= dvgProduit.Rows[i].Cells[2].Value.ToString();
+                        frmproduit.txtqte.Text = dvgProduit.Rows[i].Cells[3].Value.ToString();
+                        frmproduit.txtprix.Text = dvgProduit.Rows[i].Cells[4].Value.ToString();
+                        frmproduit.IDPRODUIT=(int)dvgProduit.Rows[i].Cells[1].Value;
+
+                            //afficher image de produit pour la modifier 
+                        MemoryStream MS = new MemoryStream(PR.Image_produit);//pour covertir image de produits pour afficher dans la picture de produits 
+                        frmproduit.picproduits.Image=Image.FromStream(MS);
+                        }
+                    }
+                
+            }
             frmproduit.ShowDialog();
-        }
+        }}
 
         private void dvgProduit_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnafficher_Click(object sender, EventArgs e)
+        {
+            Produit PR = new Produit();
+            if (selecVerif()!=null)
+            {
+                MessageBox.Show(selecVerif(), "selectionner", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for(int i = 0; i < dvgProduit.Rows.Count; i++) {
+
+                    if ((bool)dvgProduit.Rows[i].Cells[0].Value==true)// si ligne selectionner 
+                    {
+                        int MYIDSELECT = (int)dvgProduit.Rows[i].Cells[1].Value;// le id la ligne selectionner 
+                       PR = db.Produits.SingleOrDefault(s=>s.id_produit==MYIDSELECT); // verifier si id de produit = id selectionner dans le table 
+                        if (PR!=null )
+                        {
+                            FRM_Photo_Produit frmP = new FRM_Photo_Produit();
+                            // declarer le systeme.IO
+                            MemoryStream MS = new MemoryStream(PR.Image_produit);//pour covertir image de produits pour afficher dans la picture de produits 
+                            frmP.ProduitImage.Image=Image.FromStream(MS);
+                            frmP.ProduitNom.Text = dvgProduit.Rows[i].Cells[2].Value.ToString();
+                            //afficher formullaire
+                            frmP.ShowDialog();
+
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        private void btnsupprimerp_Click(object sender, EventArgs e)
+        {
+            if (selecVerif()== "Selectionner Produit ")// verifier si le produits est selectionner
+            {
+                MessageBox.Show(selecVerif(), "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DialogResult DR = MessageBox.Show("Voulez-vous Supprimer", "Suppression",MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (DR == DialogResult.Yes)
+                {
+                // verifier combien de ligne selectionner 
+                for(int i = 0; i < dvgProduit.Rows.Count; i++)
+                {
+                        
+                        if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)// si ligne cocher 
+                        {
+                            blCLasses.CLS_Produit clproduit = new blCLasses.CLS_Produit();
+                        int idselect = (int)dvgProduit.Rows[i].Cells[1].Value;
+                        clproduit.Supprimer_Produit(idselect);
+                    }
+                }
+                    // actualiser la tableau de produit
+                    actualiserdvg();
+                    MessageBox.Show("Produit Supprimer avec succes ", "Supression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
+                }
+                else
+                {
+                    MessageBox.Show("Supression anuller ", "Supression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
         }
     }
 }

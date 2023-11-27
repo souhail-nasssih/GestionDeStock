@@ -37,5 +37,43 @@ namespace GestionDeStock.blCLasses
 
 
         }
+
+
+        public void Modifier_Produit(int IDP,string NomP, string QteP, string prixP, byte[] ImageP, int idCATEGORIE)
+        {
+            PR= new Produit();
+            PR = db.Produits.SingleOrDefault(s => s.id_produit == IDP);// si id de produit = mon id 
+            if (PR!=null)// si id existe
+            {
+                PR.Nom_produit = NomP;
+                PR.Qte_produit = QteP;
+                PR.Prix_produit = prixP;
+                PR.Image_produit = ImageP;
+                PR.ID_CATEGORIE = idCATEGORIE;
+                db.SaveChanges();
+
+            }
+
+        }
+        // pour supprimer un produits deja ajouter 
+        public void Supprimer_Produit(int id)
+    {
+        PR = new Produit();
+        PR= db.Produits.SingleOrDefault(s=>s.id_produit == id);
+            if (PR!=null)
+            {
+                db.Produits.Remove(PR);
+                db.SaveChanges() ;  
+
+            }
+
+    }
+
+
+
+
+
+
+
     }
 }

@@ -370,12 +370,12 @@
         public System.Windows.Forms.TextBox txtnprduit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox picproduits;
         public System.Windows.Forms.Label lbltitre;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox combocategorie;
+        public System.Windows.Forms.PictureBox picproduits;
+        public System.Windows.Forms.ComboBox combocategorie;
     }
 }

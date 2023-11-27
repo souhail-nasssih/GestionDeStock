@@ -197,7 +197,7 @@ namespace GestionDeStock.plForm
         {
 
         }
-
+        public int IDPRODUIT;
         private void btnenregistrer_Click(object sender, EventArgs e)
         {
             if (testobligatoir()!=null)
@@ -222,6 +222,29 @@ namespace GestionDeStock.plForm
                     {
                         MessageBox.Show("Produits Existe deja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                    }
+
+                }
+                else // modification 
+                {
+                    MemoryStream MR = new MemoryStream();
+                    picproduits.Image.Save(MR, picproduits.Image.RawFormat);
+                    byte[] byteimageP = MR.ToArray();// convertir image en format byte[]
+                    blCLasses.CLS_Produit clsproduit = new blCLasses.CLS_Produit();
+                    DialogResult RS = MessageBox.Show("Volez-vous vraiment modifier","Modification",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (RS == DialogResult.Yes)
+                    {
+                    clsproduit.Modifier_Produit(IDPRODUIT, txtnprduit.Text,txtqte.Text, txtprix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue));
+                    MessageBox.Show("Produit Modifier avec succer","modification",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        // actualiser la datagrid de produits
+                        (userProduit as USER_Liste_Produit).actualiserdvg();
+                        Close();// pour quitter le formulaire si la modification terminer 
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Modfication annuler ", "modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                 }

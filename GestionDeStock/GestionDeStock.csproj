@@ -115,6 +115,12 @@
     <Compile Include="plForm\FRM_Menu.Designer.cs">
       <DependentUpon>FRM_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="plForm\FRM_Photo_Produit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="plForm\FRM_Photo_Produit.Designer.cs">
+      <DependentUpon>FRM_Photo_Produit.cs</DependentUpon>
+    </Compile>
     <Compile Include="plForm\USER_Liste_Client.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="plForm\FRM_Menu.resx">
       <DependentUpon>FRM_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="plForm\FRM_Photo_Produit.resx">
+      <DependentUpon>FRM_Photo_Produit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="plForm\USER_Liste_Client.resx">
       <DependentUpon>USER_Liste_Client.cs</DependentUpon>
